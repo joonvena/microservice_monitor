@@ -1,0 +1,17 @@
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+        - /home/joonas/Documents/Projects/prometheus.yml:/etc/prometheus.yml
+    command: "--config.file=/etc/prometheus.yml"
+    ports:
+      - 9090:9090
+    network_mode: "host"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    network_mode: "host"
+
